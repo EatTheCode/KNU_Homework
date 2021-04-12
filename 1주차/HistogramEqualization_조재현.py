@@ -33,7 +33,7 @@ class HE:
         
         return newImage
     
-    def equalization(self, image):                             # image 인자로 받기
+    def equalization(self, image):                             # image 경로 인자로 받기
         src = cv2.imread(image, cv2.IMREAD_GRAYSCALE)
         pixel = src.shape[0] * src.shape[1]                    # 전체 pixel 수 = image 행 * image 열
         histogram = self.makeHistogram(src)                    # histogram 생성
