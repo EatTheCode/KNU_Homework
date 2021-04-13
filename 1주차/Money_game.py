@@ -25,11 +25,11 @@ key_status = ""
 key = None
 
 font = pygame.font.SysFont('malgungothic', 30)
-font_1 = pygame.font.SysFont('malgungothic', 20)
+font_1 = pygame.font.SysFont('malgungothic', 25)
 
 
 def text_render(a, b, c):
-    text = font_1.render(a, True, BLACK)
+    text = font_1.render(a, True, GREEN)
     screen.blit(text, (b, c))
 
 
@@ -113,22 +113,24 @@ while not done:
     if keys[pygame.K_b]:
         time.sleep(0.3)
         if money < bitcoin_price:
-            text_render("돈이 부족합니다", 300, 300)
+            text_render("돈이 부족합니다", 400, 500)
         else:
-            text_render("코인을 구입했습니다", 300, 300)
+            text_render("코인을 구입했습니다", 400, 500)
             money = money - bitcoin_price
             bitcoin = bitcoin + 1
 
     elif keys[pygame.K_s]:
         time.sleep(0.3)
         if bitcoin == 0:
-            text_render("코인이 없습니다", 300, 300)
+            text_render("코인이 없습니다", 400, 500)
         else:
-            text_render("코인을 판매했습니다", 300, 300)
+            text_render("코인을 판매했습니다", 400, 500)
             money = money + bitcoin_price
             bitcoin = bitcoin - 1
 
-
+    if money > 5000:
+        text_render("승리하였습니다", 400, 500)
+        break
 
 
     pygame.display.flip()
